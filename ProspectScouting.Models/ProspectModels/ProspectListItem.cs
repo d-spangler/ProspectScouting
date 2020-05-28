@@ -23,7 +23,7 @@ namespace ProspectScouting.Models.ProspectModels
 
         public virtual School School { get; set; }
 
-        public string ScoutingReport { get; set; }
+        public string Report { get; set; }
 
         public decimal Grade { get; set; }
 

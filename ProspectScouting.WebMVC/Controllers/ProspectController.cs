@@ -1,30 +1,169 @@
-﻿using ProspectScouting.Models.ProspectModels;
+﻿using Microsoft.AspNet.Identity;
+using ProspectScouting.Data;
+using ProspectScouting.Models.ProspectModels;
+using ProspectScouting.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace ProspectScouting.WebMVC.Controllers
 {
     [Authorize]
+    [RoutePrefix("MVC/values")]
     public class ProspectController : Controller
     {
-        // GET: Prospect
+        // GET : Prospect
         public ActionResult Index()
         {
-            var model = new ProspectListItem[0];
-            return View();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProspectService(userID);
+            var model = service.GetAllProspects();
+
+            return View(model);
         }
 
         // CREATE
 
+        // GET : Prospect/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST : Prospect/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ProspectCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateProspectService();
+
+            if (service.CreateProspect(model))
+            {
+                TempData["SaveResult"] = "The prospect was added successfully.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "There was an issue adding the prospect.");
+
+            return View(model);
+        }
+
         // READ
+
+        // GET : Prospect/Details/{id}
+        [Route("id")]
+        public ActionResult Details(int id)
+        {
+            var svc = CreateProspectService();
+            var model = svc.GetProspectByID(id);
+
+            return View(model);
+        }
+
+        // GET : Prospect/Details/{lastname}
+        [Route("lastname")]
+        public ActionResult Details(string? lastName)
+        {
+            var svc = CreateProspectService();
+            var model = svc.GetProspectByName(lastName);
+
+            return View(model);
+        }
+
+        // GET : Prospect/Details/{position}
+        [Route("position")]
+        public ActionResult Details(string position)
+        {
+            var svc = CreateProspectService();
+            var model = svc.GetProspectByPosition(position);
+
+            return View(model);
+        }
 
         // UPDATE
 
+        // GET : Prospect/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = CreateProspectService();
+            var detail = service.GetProspectByID(id);
+            var model =
+                new ProspectEdit
+                {
+                    ProspectID = detail.ProspectID,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    Position = detail.Position,
+                    SchoolID = detail.SchoolID,
+                    Report = detail.Report,
+                    Grade = detail.Grade,
+                    BigBoard = detail.BigBoard
+                };
+
+            return View(model);
+        }
+
+        // POST : Prospect/Edit/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ProspectEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ProspectID != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateProspectService();
+
+            if (service.UpdateProspect(model))
+            {
+                TempData["SaveResult"] = "The prospect was successfully updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The prospect could not be updated.");
+            return View(model);
+        }
+
         // DELETE
 
-        
+        // GET : Prospect/Delete/{id}
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateProspectService();
+            var model = svc.GetProspectByID(id);
+
+            return View(model);
+        }
+
+        // POST : Prospect/Delete/{id}
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteProspect(int id)
+        {
+            var service = CreateProspectService();
+
+            service.DeleteProspect(id);
+
+            TempData["SaveResult"] = "Your prospect was deleted";
+
+            return RedirectToAction("Index");
+        }
+
+        private ProspectService CreateProspectService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProspectService(userId);
+            return service;
+        }
     }
 }

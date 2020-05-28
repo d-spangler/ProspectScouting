@@ -28,6 +28,9 @@ namespace ProspectScouting.Models.ProspectModels
 
         public virtual School School { get; set; }
 
+        [Display(Name = "Scouting Notes:")]
+        public string Report { get; set; }
+
         [Display(Name = "Grade:")]
         public decimal Grade { get; set; }
 

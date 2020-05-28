@@ -30,7 +30,7 @@ namespace ProspectScouting.Data
         public virtual School School { get; set; }
 
         [Required]
-        public string ScoutingReport { get; set; }
+        public string Report { get; set; }
 
         [Required]
         public decimal Grade { get; set; }
