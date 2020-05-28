@@ -3,7 +3,7 @@ namespace ProspectScouting.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
@@ -12,6 +12,7 @@ namespace ProspectScouting.Data.Migrations
                 c => new
                     {
                         AssignmentID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Guid(nullable: false),
                         AssignmentRequest = c.String(nullable: false),
                         SchoolID = c.Int(nullable: false),
                         ScoutID = c.Int(nullable: false),

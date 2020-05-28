@@ -13,7 +13,7 @@ namespace ProspectScouting.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202005281922040_InitialMigration"; }
+            get { return "202005282103138_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

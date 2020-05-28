@@ -10,7 +10,6 @@ namespace ProspectScouting.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ProspectScouting.WebMVC.Data.ApplicationDbContext";
         }
 
         protected override void Seed(ProspectScouting.WebMVC.Data.ApplicationDbContext context)

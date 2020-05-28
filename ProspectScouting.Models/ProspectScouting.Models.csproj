@@ -54,8 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignmentModels\AssignmentCreate.cs" />
+    <Compile Include="AssignmentModels\AssignmentDetail.cs" />
+    <Compile Include="AssignmentModels\AssignmentEdit.cs" />
+    <Compile Include="AssignmentModels\AssignmentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Prospect\ProspectListItem.cs" />
+    <Compile Include="ProspectModels\ProspectCreate.cs" />
+    <Compile Include="ProspectModels\ProspectEdit.cs" />
+    <Compile Include="ProspectModels\ProspectDetail.cs" />
+    <Compile Include="ProspectModels\ProspectListItem.cs" />
+    <Compile Include="SchoolModels\SchoolCreate.cs" />
+    <Compile Include="SchoolModels\SchoolDetail.cs" />
+    <Compile Include="SchoolModels\SchoolEdit.cs" />
+    <Compile Include="SchoolModels\SchoolListItem.cs" />
+    <Compile Include="ScoutModels\ScoutCreate.cs" />
+    <Compile Include="ScoutModels\ScoutDetail.cs" />
+    <Compile Include="ScoutModels\ScoutEdit.cs" />
+    <Compile Include="ScoutModels\ScoutListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

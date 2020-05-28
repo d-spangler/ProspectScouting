@@ -1,4 +1,4 @@
-﻿using ProspectScouting.Models.Prospect;
+﻿using ProspectScouting.Models.ProspectModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +16,15 @@ namespace ProspectScouting.WebMVC.Controllers
             var model = new ProspectListItem[0];
             return View();
         }
+
+        // CREATE
+
+        // READ
+
+        // UPDATE
+
+        // DELETE
+
+        
     }
 }
