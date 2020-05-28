@@ -56,6 +56,15 @@
   <ItemGroup>
     <Compile Include="Assignment.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202005281916235_InitialCreate.cs" />
+    <Compile Include="Migrations\202005281916235_InitialCreate.Designer.cs">
+      <DependentUpon>202005281916235_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005281922040_InitialMigration.cs" />
+    <Compile Include="Migrations\202005281922040_InitialMigration.Designer.cs">
+      <DependentUpon>202005281922040_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prospect.cs" />
     <Compile Include="School.cs" />
@@ -64,6 +73,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005281916235_InitialCreate.resx">
+      <DependentUpon>202005281916235_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005281922040_InitialMigration.resx">
+      <DependentUpon>202005281922040_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

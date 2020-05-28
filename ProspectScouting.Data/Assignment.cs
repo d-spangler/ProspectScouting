@@ -14,16 +14,19 @@ namespace ProspectScouting.Data
         public int AssignmentID { get; set; }
 
         [Required]
+        public Guid OwnerID { get; set; }
+
+        [Required]
         public string AssignmentRequest { get; set; }
 
         [Required]
         [ForeignKey("School")]
         public int SchoolID { get; set; }
-        public School School { get; set; }
+        public virtual School School { get; set; }
 
         [Required]
         [ForeignKey("Scout")]
         public int ScoutID { get; set; }
-        public Scout Scout { get; set; }
+        public virtual Scout Scout { get; set; }
     }
 }

@@ -1,41 +1,35 @@
-﻿using System;
+﻿using ProspectScouting.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProspectScouting.Data
+namespace ProspectScouting.Models.Prospect
 {
-    public enum Position { QB = 1, RB, WR, TE, OT, IOL, IDL, EDGE, LB, CB, S, PK }
-
-    public class Prospect
+    public class ProspectListItem
     {
-        [Key]
         public int ProspectID { get; set; }
 
-        [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
         public Position Position { get; set; }
 
-        [Required]
-        [ForeignKey("School")]
         public int SchoolID { get; set; }
+        
         public virtual School School { get; set; }
 
-        [Required]
+        [Display(Name = "Notes")]
         public string ScoutingReport { get; set; }
 
-        [Required]
         public decimal Grade { get; set; }
 
-        [Required]
+        [Display(Name = "On Big Board")]
         public bool BigBoard { get; set; }
     }
 }
