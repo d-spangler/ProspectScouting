@@ -54,8 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prospect.cs" />
+    <Compile Include="School.cs" />
+    <Compile Include="Scout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
