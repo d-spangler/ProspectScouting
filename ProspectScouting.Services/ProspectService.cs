@@ -1,5 +1,6 @@
 ﻿using ProspectScouting.Data;
 using ProspectScouting.Models.ProspectModels;
+using ProspectScouting.Models.SchoolModels;
 using ProspectScouting.WebMVC.Data;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,8 @@ namespace ProspectScouting.Services
                 return queary.ToArray();
             }
         }
+
+        //public IEnumerable<SchoolListItem> GetAllSchools() { }
         
         // GET BY ID
         public ProspectDetail GetProspectByID(int id)

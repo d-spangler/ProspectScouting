@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
 using ProspectScouting.Data;
+using ProspectScouting.Models;
 using ProspectScouting.Models.ProspectModels;
 using ProspectScouting.Services;
+using ProspectScouting.WebMVC.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

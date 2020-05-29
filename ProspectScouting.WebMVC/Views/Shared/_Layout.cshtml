@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title | DSS | @DateTime.Now </title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,17 +17,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Prospect Scouting ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Prospects", "Prospect", "Home")</li>
-                    <li>@Html.ActionLink("Schools", "School", "Home")</li>
-                    <li>@Html.ActionLink("Scouts", "Scout", "Home")</li>
+                    <li>@Html.ActionLink("Prospects", "Index", "Prospect")</li>
+                    <li>@Html.ActionLink("Schools", "Index", "School")</li>
+                    <li>@Html.ActionLink("Scouts", "Index", "Scout")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Assignments", "Assignment", "Home")</li>
-                        <li>@Html.ActionLink("Draft Board", "DraftBoard", "Home")</li>
+                        <li>@Html.ActionLink("Assignments", "Index", "Assignment")</li>
+                        <li>@Html.ActionLink("Draft Board", "DraftBoard", "Prospect")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -37,8 +37,13 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="panel-footer navbar-fixed-bottom">
+            <div>
+                <p>&copy; @DateTime.Now.Year</p> |
+                <p>@Html.ActionLink("About", "About", "Home")</p> |
+                <p>@Html.ActionLink("Contact", "Contact", "Home")</p> |
+                <p><a href="https://d-spangler.github.io/portfolio_ds20/" target="_blank">DSS</a></p>
+            </div>
         </footer>
     </div>
 

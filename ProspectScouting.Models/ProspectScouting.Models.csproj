@@ -63,6 +63,7 @@
     <Compile Include="ProspectModels\ProspectEdit.cs" />
     <Compile Include="ProspectModels\ProspectDetail.cs" />
     <Compile Include="ProspectModels\ProspectListItem.cs" />
+    <Compile Include="SchoolListDropDown.cs" />
     <Compile Include="SchoolModels\SchoolCreate.cs" />
     <Compile Include="SchoolModels\SchoolDetail.cs" />
     <Compile Include="SchoolModels\SchoolEdit.cs" />
