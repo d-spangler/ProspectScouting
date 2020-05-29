@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssignmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProspectController.cs" />
@@ -248,9 +249,14 @@
     <Content Include="Views\School\Edit.cshtml" />
     <Content Include="Views\School\Delete.cshtml" />
     <Content Include="Views\Scout\Index.cshtml" />
+    <Content Include="Views\Scout\Create.cshtml" />
+    <Content Include="Views\Scout\Details.cshtml" />
+    <Content Include="Views\Scout\Edit.cshtml" />
+    <Content Include="Views\Scout\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Assignment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

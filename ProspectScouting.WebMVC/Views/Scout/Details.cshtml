@@ -1,0 +1,43 @@
+﻿@model ProspectScouting.Models.ScoutModels.ScoutDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Scouts</h2>
+
+<div>
+    <h4>Scout Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoutID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoutID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ScoutID }) |
+    @Html.ActionLink("Remove", "Delete", new { id = Model.ScoutID}) |
+    @Html.ActionLink("Back to Scout List", "Index")
+</p>

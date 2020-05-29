@@ -28,5 +28,7 @@ namespace ProspectScouting.Data
         [ForeignKey("Scout")]
         public int ScoutID { get; set; }
         public virtual Scout Scout { get; set; }
+
+        public bool Completed { get; set; }
     }
 }

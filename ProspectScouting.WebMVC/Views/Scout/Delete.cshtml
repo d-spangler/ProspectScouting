@@ -1,0 +1,48 @@
+﻿@model ProspectScouting.Models.ScoutModels.ScoutDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Scouts</h2>
+
+<h3>Are you sure you want to remove this scout?</h3>
+<div>
+    <h4>ScoutDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoutID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoutID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Scout List", "Index")
+        </div>
+    }
+</div>

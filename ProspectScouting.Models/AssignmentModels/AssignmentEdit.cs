@@ -27,6 +27,7 @@ namespace ProspectScouting.Models.AssignmentModels
 
         public virtual Scout Scout { get; set; }
 
-        
+        [Display(Name = "Mark as Completed?")]
+        public bool Completed { get; set; }
     }
 }

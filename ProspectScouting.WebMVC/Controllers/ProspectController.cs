@@ -85,6 +85,16 @@ namespace ProspectScouting.WebMVC.Controllers
             return View(model);
         }
 
+        // GET : Prospect/Details/{school}
+        [Route("school")]
+        public ActionResult DetailsBySchool(string school)
+        {
+            var svc = CreateProspectService();
+            var model = svc.GetProspectsBySchool(school);
+
+            return View(model);
+        }
+
         // UPDATE
 
         // GET : Prospect/Edit/{id}

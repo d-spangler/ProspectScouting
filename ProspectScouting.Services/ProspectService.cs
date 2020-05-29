@@ -143,6 +143,30 @@ namespace ProspectScouting.Services
             }
         }
 
+        // GET BY SCHOOL
+        public ProspectDetail GetProspectsBySchool(string school)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Prospects
+                        .Single(e => e.School.SchoolName == school);
+                return
+                        new ProspectDetail
+                        {
+                            ProspectID = entity.ProspectID,
+                            FirstName = entity.FirstName,
+                            LastName = entity.LastName,
+                            Position = entity.Position,
+                            SchoolID = entity.SchoolID,
+                            Report = entity.Report,
+                            Grade = entity.Grade,
+                            BigBoard = entity.BigBoard
+                        };
+            }
+        }
+
         // UPDATE
         public bool UpdateProspect(ProspectEdit model)
         {
