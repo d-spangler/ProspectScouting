@@ -1,0 +1,64 @@
+﻿@model ProspectScouting.Models.AssignmentModels.AssignmentDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Assignments</h2>
+
+<h3>Are you sure you want to remove this assignment?</h3>
+<div>
+    <h4>AssignmentDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignmentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignmentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignmentRequest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignmentRequest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.School.SchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School.SchoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Scout.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Scout.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Assignment List", "Index")
+        </div>
+    }
+</div>

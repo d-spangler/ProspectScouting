@@ -125,7 +125,7 @@ namespace ProspectScouting.Services
         }
 
         // GET ASSIGNMENTS IN PROGRESS
-        public AssignmentDetail GetAssignmentsInProgress(bool completed)
+        public AssignmentDetail GetActiveAssignments(bool completed)
         {
             using (var ctx = new ApplicationDbContext())
             {

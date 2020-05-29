@@ -253,10 +253,15 @@
     <Content Include="Views\Scout\Details.cshtml" />
     <Content Include="Views\Scout\Edit.cshtml" />
     <Content Include="Views\Scout\Delete.cshtml" />
+    <Content Include="Views\Assignment\Index.cshtml" />
+    <Content Include="Views\Assignment\Create.cshtml" />
+    <Content Include="Views\Assignment\Details.cshtml" />
+    <Content Include="Views\Assignment\Edit.cshtml" />
+    <Content Include="Views\Assignment\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Assignment\" />
+    <Folder Include="Views\DraftBoard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

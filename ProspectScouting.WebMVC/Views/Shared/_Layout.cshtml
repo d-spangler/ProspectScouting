@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title | DSS | @DateTime.Now </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -21,12 +21,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Prospects", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Schools", "About", "Home")</li>
-                    <li>@Html.ActionLink("Scouts", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Prospects", "Prospect", "Home")</li>
+                    <li>@Html.ActionLink("Schools", "School", "Home")</li>
+                    <li>@Html.ActionLink("Scouts", "Scout", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Draft Board", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Assignments", "Assignment", "Home")</li>
+                        <li>@Html.ActionLink("Draft Board", "DraftBoard", "Home")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
