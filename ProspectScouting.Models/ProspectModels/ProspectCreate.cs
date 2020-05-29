@@ -24,12 +24,14 @@ namespace ProspectScouting.Models.ProspectModels
         public string LastName { get; set; }
 
         [Required]
+        [Display(Name = "Position:")]
         public Position Position { get; set; }
 
         [Required]
         [Display(Name = "School:")]
         public int SchoolID { get; set; }
 
+        [Display(Name = "School Name:")]
         [ForeignKey(nameof(SchoolID))]
         public virtual School School { get; set; }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProspectScouting.Models.Prospect.ProspectListItem>
+﻿@model IEnumerable<ProspectScouting.Models.ProspectModels.ProspectListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -9,6 +9,17 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
 <table class="table">
     <tr>
         @*<th>
@@ -24,7 +35,7 @@
             @Html.DisplayNameFor(model => model.School.SchoolName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ScoutingReport)
+            @Html.DisplayNameFor(model => model.Report)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Grade)
@@ -50,7 +61,7 @@
             @Html.DisplayFor(modelItem => item.School.SchoolName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ScoutingReport)
+            @Html.DisplayFor(modelItem => item.Report)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Grade)

@@ -67,7 +67,7 @@ namespace ProspectScouting.WebMVC.Controllers
 
         // GET : Prospect/Details/{lastname}
         [Route("lastname")]
-        public ActionResult Details(string? lastName)
+        public ActionResult Details(string lastName)
         {
             var svc = CreateProspectService();
             var model = svc.GetProspectByName(lastName);
@@ -77,7 +77,7 @@ namespace ProspectScouting.WebMVC.Controllers
 
         // GET : Prospect/Details/{position}
         [Route("position")]
-        public ActionResult Details(string position)
+        public ActionResult DetailsByPosition(string position)
         {
             var svc = CreateProspectService();
             var model = svc.GetProspectByPosition(position);
@@ -154,15 +154,16 @@ namespace ProspectScouting.WebMVC.Controllers
 
             service.DeleteProspect(id);
 
-            TempData["SaveResult"] = "Your prospect was deleted";
+            TempData["SaveResult"] = "The prospect was successfully removed.";
 
             return RedirectToAction("Index");
         }
 
+        // CREATE PROSPECT SERVICE
         private ProspectService CreateProspectService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ProspectService(userId);
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProspectService(userID);
             return service;
         }
     }

@@ -120,6 +120,7 @@ namespace ProspectScouting.Data
         public int SchoolID { get; set; }
 
         [Required]
+        [Display(Name = "School Name:")]
         public string SchoolName { get; set; }
 
         [Required]
