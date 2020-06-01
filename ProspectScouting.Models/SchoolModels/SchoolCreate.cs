@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ProspectScouting.Models.SchoolModels
 {
@@ -25,5 +26,7 @@ namespace ProspectScouting.Models.SchoolModels
         [Required]
         [Display(Name = "State:")]
         public State State { get; set; }
+
+        public IEnumerable<SelectListItem> Schools { get; set; }
     }
 }

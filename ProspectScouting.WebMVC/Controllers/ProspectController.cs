@@ -6,6 +6,7 @@ using ProspectScouting.Services;
 using ProspectScouting.WebMVC.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,7 +33,10 @@ namespace ProspectScouting.WebMVC.Controllers
         // GET : Prospect/Create
         public ActionResult Create()
         {
+            var db = new SchoolService();
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
             return View();
+
         }
 
         // POST : Prospect/Create
@@ -40,6 +44,9 @@ namespace ProspectScouting.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProspectCreate model)
         {
+            //var db = new SchoolService();
+            //ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateProspectService();

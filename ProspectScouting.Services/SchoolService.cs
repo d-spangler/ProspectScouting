@@ -19,6 +19,10 @@ namespace ProspectScouting.Services
             _userID = userID;
         }
 
+        public SchoolService()
+        {
+        }
+
         // CREATE
         public bool CreateSchool(SchoolCreate model)
         {
