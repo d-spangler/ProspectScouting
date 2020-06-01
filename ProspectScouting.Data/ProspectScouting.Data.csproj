@@ -68,6 +68,14 @@
     <Compile Include="Migrations\202005291917309_ThirdMigration.Designer.cs">
       <DependentUpon>202005291917309_ThirdMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006011902486_FourthMigration.cs" />
+    <Compile Include="Migrations\202006011902486_FourthMigration.Designer.cs">
+      <DependentUpon>202006011902486_FourthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011909527_FifthMigration.cs" />
+    <Compile Include="Migrations\202006011909527_FifthMigration.Designer.cs">
+      <DependentUpon>202006011909527_FifthMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prospect.cs" />
@@ -87,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005291917309_ThirdMigration.resx">
       <DependentUpon>202005291917309_ThirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011902486_FourthMigration.resx">
+      <DependentUpon>202006011902486_FourthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011909527_FifthMigration.resx">
+      <DependentUpon>202006011909527_FifthMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

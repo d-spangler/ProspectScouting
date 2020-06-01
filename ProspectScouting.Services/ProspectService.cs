@@ -170,6 +170,30 @@ namespace ProspectScouting.Services
             }
         }
 
+        // GET BY BIG BOARD
+        public ProspectDetail GetProspectByBigBoard(bool bigBoard)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Prospects
+                        .Single(e => e.BigBoard == bigBoard == true);
+                return
+                        new ProspectDetail
+                        {
+                            ProspectID = entity.ProspectID,
+                            FirstName = entity.FirstName,
+                            LastName = entity.LastName,
+                            Position = entity.Position,
+                            SchoolID = entity.SchoolID,
+                            Report = entity.Report,
+                            Grade = entity.Grade,
+                            BigBoard = entity.BigBoard
+                        };
+            }
+        }
+
         // UPDATE
         public bool UpdateProspect(ProspectEdit model)
         {

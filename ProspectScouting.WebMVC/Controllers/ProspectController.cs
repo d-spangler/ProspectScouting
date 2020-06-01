@@ -74,6 +74,16 @@ namespace ProspectScouting.WebMVC.Controllers
             return View(model);
         }
 
+        // GET : BIG BOARD
+        [Route("bigboard")]
+        public ActionResult BigBoard(bool bigBoard)
+        {
+            var svc = CreateProspectService();
+            var model = svc.GetProspectByBigBoard(bigBoard);
+
+            return View(model);
+        }
+
         //// GET : Prospect/Details/{lastname}
         //[Route("lastname")]
         //public ActionResult Details(string lastName)
@@ -103,6 +113,8 @@ namespace ProspectScouting.WebMVC.Controllers
 
         //    return View(model);
         //}
+
+
 
         // UPDATE
 

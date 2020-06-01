@@ -258,10 +258,11 @@
     <Content Include="Views\Assignment\Details.cshtml" />
     <Content Include="Views\Assignment\Edit.cshtml" />
     <Content Include="Views\Assignment\Delete.cshtml" />
+    <Content Include="Views\Shared\Enum.cshtml" />
+    <Content Include="Views\Prospect\BigBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DraftBoard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
