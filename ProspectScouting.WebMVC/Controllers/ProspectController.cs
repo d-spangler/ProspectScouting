@@ -74,35 +74,35 @@ namespace ProspectScouting.WebMVC.Controllers
             return View(model);
         }
 
-        // GET : Prospect/Details/{lastname}
-        [Route("lastname")]
-        public ActionResult Details(string lastName)
-        {
-            var svc = CreateProspectService();
-            var model = svc.GetProspectByName(lastName);
+        //// GET : Prospect/Details/{lastname}
+        //[Route("lastname")]
+        //public ActionResult Details(string lastName)
+        //{
+        //    var svc = CreateProspectService();
+        //    var model = svc.GetProspectByName(lastName);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        // GET : Prospect/Details/{position}
-        [Route("position")]
-        public ActionResult DetailsByPosition(string position)
-        {
-            var svc = CreateProspectService();
-            var model = svc.GetProspectByPosition(position);
+        //// GET : Prospect/Details/{position}
+        //[Route("position")]
+        //public ActionResult DetailsByPosition(string position)
+        //{
+        //    var svc = CreateProspectService();
+        //    var model = svc.GetProspectByPosition(position);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        // GET : Prospect/Details/{school}
-        [Route("school")]
-        public ActionResult DetailsBySchool(string school)
-        {
-            var svc = CreateProspectService();
-            var model = svc.GetProspectsBySchool(school);
+        //// GET : Prospect/Details/{school}
+        //[Route("school")]
+        //public ActionResult DetailsBySchool(string school)
+        //{
+        //    var svc = CreateProspectService();
+        //    var model = svc.GetProspectsBySchool(school);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         // UPDATE
 

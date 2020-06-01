@@ -16,16 +16,17 @@ namespace ProspectScouting.Models.AssignmentModels
         [Display(Name = "Assignment Details:")]
         public string AssignmentRequest { get; set; }
 
-        [Display(Name = "School")]
+        [Display(Name = "School:")]
         public int SchoolID { get; set; }
 
         public virtual School School { get; set; }
 
-        [Display(Name = "Scout")]
+        [Display(Name = "Scout:")]
         public int ScoutID { get; set; }
 
         public virtual Scout Scout { get; set; }
 
+        [Display(Name = "Completed?")]
         public bool Completed { get; set; }
     }
 }

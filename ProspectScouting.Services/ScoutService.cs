@@ -18,6 +18,10 @@ namespace ProspectScouting.Services
             _userID = userID;
         }
 
+        public ScoutService()
+        {
+        }
+
         // CREATE
         public bool CreateScout(ScoutCreate model)
         {

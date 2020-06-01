@@ -31,6 +31,14 @@ namespace ProspectScouting.WebMVC.Controllers
         // GET : Assignment/Create
         public ActionResult Create()
         {
+            //Select School DDL
+            var db = new SchoolService();
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+
+            //Select Scout DDL
+            var dbTwo = new ScoutService();
+            ViewBag.ScoutID = new SelectList(dbTwo.GetAllScouts().ToList(), "ScoutID", "FullName");
+
             return View();
         }
 

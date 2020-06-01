@@ -64,25 +64,25 @@ namespace ProspectScouting.WebMVC.Controllers
             return View(model);
         }
 
-        // GET : School/Details/{schoolname}
-        [Route("schoolname")]
-        public ActionResult Details(string schoolName)
-        {
-            var svc = CreateSchoolService();
-            var model = svc.GetSchoolByName(schoolName);
+        //// GET : School/Details/{schoolname}
+        //[Route("schoolname")]
+        //public ActionResult DetailsByName(string schoolName)
+        //{
+        //    var svc = CreateSchoolService();
+        //    var model = svc.GetSchoolByName(schoolName);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        // GET : School/Details/{state}
-        [Route("state")]
-        public ActionResult DetailsByState(string state)
-        {
-            var svc = CreateSchoolService();
-            var model = svc.GetSchoolByState(state);
+        //// GET : School/Details/{state}
+        //[Route("state")]
+        //public ActionResult DetailsByState(string state)
+        //{
+        //    var svc = CreateSchoolService();
+        //    var model = svc.GetSchoolByState(state);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         // UPDATE
 

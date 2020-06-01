@@ -9,12 +9,16 @@ namespace ProspectScouting.Models.ScoutModels
 {
     public class ScoutListItem
     {
+        [Display(Name = "Scout ID:")]
         public int ScoutID { get; set; }
 
+        [Display(Name = "First Name:")]
         public string FirstName { get; set; }
 
+        [Display(Name = "Last Name:")]
         public string LastName { get; set; }
 
+        [Display(Name = "Scout:")]
         public string FullName => $"{FirstName} {LastName}";
     }
 }
