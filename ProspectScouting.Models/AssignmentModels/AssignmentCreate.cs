@@ -14,6 +14,7 @@ namespace ProspectScouting.Models.AssignmentModels
         [Required]
         [MinLength(10, ErrorMessage = "Please enter at least 10 characters.")]
         [MaxLength(3000, ErrorMessage = "There are too many characters in this field.")]
+        [Display(Name = "Request:")]
         public string AssignmentRequest { get; set; }
 
         [Required]

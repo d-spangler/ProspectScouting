@@ -28,7 +28,7 @@ namespace ProspectScouting.Services
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Position = model.Position,
-                    SchoolID = model.SchoolID,
+                    School = model.School,
                     Report = model.Report,
                     Grade = model.Grade,
                     BigBoard = model.BigBoard
@@ -59,7 +59,7 @@ namespace ProspectScouting.Services
                                     FirstName = e.FirstName,
                                     LastName = e.LastName,
                                     Position = e.Position,
-                                    SchoolID = e.SchoolID,
+                                    School = e.School,
                                     Report = e.Report,
                                     Grade = e.Grade,
                                     BigBoard = e.BigBoard
@@ -68,8 +68,6 @@ namespace ProspectScouting.Services
                 return queary.ToArray();
             }
         }
-
-        //public IEnumerable<SchoolListItem> GetAllSchools() { }
         
         // GET BY ID
         public ProspectDetail GetProspectByID(int id)
@@ -87,7 +85,7 @@ namespace ProspectScouting.Services
                             FirstName = entity.FirstName,
                             LastName = entity.LastName,
                             Position = entity.Position,
-                            SchoolID = entity.SchoolID,
+                            School = entity.School,
                             Report = entity.Report,
                             Grade = entity.Grade,
                             BigBoard = entity.BigBoard
@@ -111,7 +109,7 @@ namespace ProspectScouting.Services
                             FirstName = entity.FirstName,
                             LastName = entity.LastName,
                             Position = entity.Position,
-                            SchoolID = entity.SchoolID,
+                            School = entity.School,
                             Report = entity.Report,
                             Grade = entity.Grade,
                             BigBoard = entity.BigBoard
@@ -136,7 +134,7 @@ namespace ProspectScouting.Services
                             FirstName = e.FirstName,
                             LastName = e.LastName,
                             Position = e.Position,
-                            SchoolID = e.SchoolID,
+                            School = e.School,
                             Report = e.Report,
                             Grade = e.Grade,
                             BigBoard = e.BigBoard
@@ -162,7 +160,7 @@ namespace ProspectScouting.Services
                             FirstName = entity.FirstName,
                             LastName = entity.LastName,
                             Position = entity.Position,
-                            SchoolID = entity.SchoolID,
+                            School = entity.School,
                             Report = entity.Report,
                             Grade = entity.Grade,
                             BigBoard = entity.BigBoard
@@ -186,7 +184,7 @@ namespace ProspectScouting.Services
                             FirstName = entity.FirstName,
                             LastName = entity.LastName,
                             Position = entity.Position,
-                            SchoolID = entity.SchoolID,
+                            School = entity.School,
                             Report = entity.Report,
                             Grade = entity.Grade,
                             BigBoard = entity.BigBoard
@@ -208,7 +206,7 @@ namespace ProspectScouting.Services
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
                 entity.Position = model.Position;
-                entity.SchoolID = model.SchoolID;
+                entity.School = model.School;
                 entity.Report = model.Report;
                 entity.Grade = model.Grade;
                 entity.BigBoard = model.BigBoard;

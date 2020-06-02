@@ -119,6 +119,14 @@ namespace ProspectScouting.WebMVC.Controllers
         // GET : Assignment/Edit/{id}
         public ActionResult Edit(int id)
         {
+            //Select School DDL
+            var db = new SchoolService();
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+
+            //Select Scout DDL
+            var dbTwo = new ScoutService();
+            ViewBag.ScoutID = new SelectList(dbTwo.GetAllScouts().ToList(), "ScoutID", "FullName");
+
             var service = CreateAssignmentService();
             var detail = service.GetAssignmentByID(id);
             var model =

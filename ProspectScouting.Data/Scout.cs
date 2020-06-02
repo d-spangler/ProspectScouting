@@ -18,6 +18,7 @@ namespace ProspectScouting.Data
         [Required]
         public string LastName { get; set; }
 
+        [Display(Name = "Scout Name:")]
         public string FullName => $"{FirstName} {LastName}";
     }
 }

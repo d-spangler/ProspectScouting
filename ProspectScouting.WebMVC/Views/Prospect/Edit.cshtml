@@ -14,14 +14,14 @@
     <div class="form-horizontal">
         <h4>Prospect Attributes</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.ProspectID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ProspectID, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ProspectID, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -40,7 +40,14 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.School.SchoolID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Position, EnumHelper.GetSelectList(typeof(ProspectScouting.Data.Position)), "Select Position")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.School.SchoolName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("SchoolID", null, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SchoolID, "", new { @class = "text-danger" })

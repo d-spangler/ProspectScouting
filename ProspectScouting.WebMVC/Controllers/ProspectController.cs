@@ -121,6 +121,9 @@ namespace ProspectScouting.WebMVC.Controllers
         // GET : Prospect/Edit/{id}
         public ActionResult Edit(int id)
         {
+            var db = new SchoolService();
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+
             var service = CreateProspectService();
             var detail = service.GetProspectByID(id);
             var model =
@@ -130,7 +133,7 @@ namespace ProspectScouting.WebMVC.Controllers
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,
                     Position = detail.Position,
-                    SchoolID = detail.SchoolID,
+                    School = detail.School,
                     Report = detail.Report,
                     Grade = detail.Grade,
                     BigBoard = detail.BigBoard
@@ -144,6 +147,9 @@ namespace ProspectScouting.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ProspectEdit model)
         {
+            var db = new SchoolService();
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+
             if (!ModelState.IsValid) return View(model);
 
             if (model.ProspectID != id)

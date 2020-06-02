@@ -26,6 +26,7 @@ namespace ProspectScouting.Models.ProspectModels
         [Display(Name = "School:")]
         public int SchoolID { get; set; }
 
+        [ForeignKey(nameof(SchoolID))]
         public virtual School School { get; set; }
 
         [Display(Name = "Scouting Notes:")]

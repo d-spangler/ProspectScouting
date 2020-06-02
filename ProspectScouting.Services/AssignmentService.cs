@@ -25,8 +25,8 @@ namespace ProspectScouting.Services
                 new Assignment()
                 {
                     AssignmentRequest = model.AssignmentRequest,
-                    SchoolID = model.SchoolID,
-                    ScoutID = model.ScoutID
+                    School = model.School,
+                    Scout = model.Scout
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -52,8 +52,8 @@ namespace ProspectScouting.Services
                                 {
                                     AssignmentID = e.AssignmentID,
                                     AssignmentRequest = e.AssignmentRequest,
-                                    SchoolID = e.SchoolID,
-                                    ScoutID = e.ScoutID,
+                                    School = e.School,
+                                    Scout = e.Scout,
                                     Completed = e.Completed,
                                 });
 
@@ -75,8 +75,8 @@ namespace ProspectScouting.Services
                         {
                             AssignmentID = entity.AssignmentID,
                             AssignmentRequest = entity.AssignmentRequest,
-                            SchoolID = entity.SchoolID,
-                            ScoutID = entity.ScoutID,
+                            School = entity.School,
+                            Scout = entity.Scout,
                             Completed = entity.Completed
                         };
             }
@@ -96,8 +96,8 @@ namespace ProspectScouting.Services
                         {
                             AssignmentID = entity.AssignmentID,
                             AssignmentRequest = entity.AssignmentRequest,
-                            SchoolID = entity.SchoolID,
-                            ScoutID = entity.ScoutID,
+                            School = entity.School,
+                            Scout = entity.Scout,
                             Completed = entity.Completed
                         };
             }
@@ -117,8 +117,8 @@ namespace ProspectScouting.Services
                         {
                             AssignmentID = entity.AssignmentID,
                             AssignmentRequest = entity.AssignmentRequest,
-                            SchoolID = entity.SchoolID,
-                            ScoutID = entity.ScoutID,
+                            School = entity.School,
+                            Scout = entity.Scout,
                             Completed = entity.Completed
                         };
             }
@@ -138,8 +138,8 @@ namespace ProspectScouting.Services
                         {
                             AssignmentID = entity.AssignmentID,
                             AssignmentRequest = entity.AssignmentRequest,
-                            SchoolID = entity.SchoolID,
-                            ScoutID = entity.ScoutID,
+                            School = entity.School,
+                            Scout = entity.Scout,
                             Completed = entity.Completed
                         };
             }
@@ -159,8 +159,8 @@ namespace ProspectScouting.Services
                         {
                             AssignmentID = entity.AssignmentID,
                             AssignmentRequest = entity.AssignmentRequest,
-                            SchoolID = entity.SchoolID,
-                            ScoutID = entity.ScoutID,
+                            School = entity.School,
+                            Scout = entity.Scout,
                             Completed = entity.Completed
                         };
             }
@@ -178,8 +178,8 @@ namespace ProspectScouting.Services
 
                 entity.AssignmentID = model.AssignmentID;
                 entity.AssignmentRequest = model.AssignmentRequest;
-                entity.SchoolID = model.SchoolID;
-                entity.ScoutID = model.ScoutID;
+                entity.School = model.School;
+                entity.Scout = model.Scout;
                 entity.Completed = model.Completed;
 
                 return ctx.SaveChanges() == 1;

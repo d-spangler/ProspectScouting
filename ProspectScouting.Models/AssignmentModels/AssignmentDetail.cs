@@ -13,7 +13,7 @@ namespace ProspectScouting.Models.AssignmentModels
         [Display(Name = "Assignment ID:")]
         public int AssignmentID { get; set; }
 
-        [Display(Name = "Assignment Details:")]
+        [Display(Name = "Request Details:")]
         public string AssignmentRequest { get; set; }
 
         [Display(Name = "School:")]

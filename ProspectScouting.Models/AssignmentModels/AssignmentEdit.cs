@@ -12,7 +12,7 @@ namespace ProspectScouting.Models.AssignmentModels
     {
         public int AssignmentID { get; set; }
 
-        [Display(Name = "Assignment Details:")]
+        [Display(Name = "Request Details:")]
         [MinLength(10, ErrorMessage = "Please enter at least 10 characters.")]
         [MaxLength(3000, ErrorMessage = "There are too many characters in this field.")]
         public string AssignmentRequest { get; set; }

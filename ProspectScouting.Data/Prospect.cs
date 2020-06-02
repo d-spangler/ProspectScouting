@@ -29,11 +29,11 @@ namespace ProspectScouting.Data
 
         [Required]
         public Position Position { get; set; }
-        //public string Position { get; { return Enum.GetName(typeof(Position), Position )} }
+
+        public int SchoolID { get; set; }
 
         [Required]
-        [ForeignKey("School")]
-        public int SchoolID { get; set; }
+        [ForeignKey(nameof(SchoolID))]
         public virtual School School { get; set; }
 
         [Required]
