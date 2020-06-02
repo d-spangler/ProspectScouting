@@ -27,7 +27,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Assignments", "Index", "Assignment")</li>
-                        <li>@Html.ActionLink("Draft Board", "DraftBoard", "Prospect")</li>
+                        <li>@Html.ActionLink("Draft Board", "BigBoard", "Prospect")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

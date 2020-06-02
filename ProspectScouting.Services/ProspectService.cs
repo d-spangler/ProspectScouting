@@ -169,26 +169,28 @@ namespace ProspectScouting.Services
         }
 
         // GET BY BIG BOARD
-        public ProspectDetail GetProspectByBigBoard(bool bigBoard)
+        public IEnumerable<ProspectListItem> GetProspectByBigBoard()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var queary =
                     ctx
                         .Prospects
-                        .Single(e => e.BigBoard == bigBoard == true);
-                return
-                        new ProspectDetail
+                        .Where(e => e.BigBoard == true).Select(e =>
+
+                        new ProspectListItem
                         {
-                            ProspectID = entity.ProspectID,
-                            FirstName = entity.FirstName,
-                            LastName = entity.LastName,
-                            Position = entity.Position,
-                            School = entity.School,
-                            Report = entity.Report,
-                            Grade = entity.Grade,
-                            BigBoard = entity.BigBoard
-                        };
+                            ProspectID = e.ProspectID,
+                            FirstName = e.FirstName,
+                            LastName = e.LastName,
+                            Position = e.Position,
+                            School = e.School,
+                            Report = e.Report,
+                            Grade = e.Grade,
+                            BigBoard = e.BigBoard
+                        });
+
+                return queary.ToArray();
             }
         }
 

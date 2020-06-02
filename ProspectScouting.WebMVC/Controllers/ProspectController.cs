@@ -76,10 +76,10 @@ namespace ProspectScouting.WebMVC.Controllers
 
         // GET : BIG BOARD
         [Route("bigboard")]
-        public ActionResult BigBoard(bool bigBoard)
+        public ActionResult BigBoard()
         {
             var svc = CreateProspectService();
-            var model = svc.GetProspectByBigBoard(bigBoard);
+            var model = svc.GetProspectByBigBoard();
 
             return View(model);
         }
