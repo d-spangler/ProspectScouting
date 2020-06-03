@@ -16,6 +16,7 @@ namespace ProspectScouting.Data.Migrations
                         AssignmentRequest = c.String(nullable: false),
                         SchoolID = c.Int(nullable: false),
                         ScoutID = c.Int(nullable: false),
+                        Completed = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.AssignmentID)
                 .ForeignKey("dbo.School", t => t.SchoolID, cascadeDelete: true)
@@ -53,7 +54,7 @@ namespace ProspectScouting.Data.Migrations
                         LastName = c.String(nullable: false),
                         Position = c.Int(nullable: false),
                         SchoolID = c.Int(nullable: false),
-                        ScoutingReport = c.String(nullable: false),
+                        Report = c.String(nullable: false),
                         Grade = c.Decimal(nullable: false, precision: 18, scale: 2),
                         BigBoard = c.Boolean(nullable: false),
                     })

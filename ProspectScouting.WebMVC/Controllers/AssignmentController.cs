@@ -74,25 +74,25 @@ namespace ProspectScouting.WebMVC.Controllers
             return View(model);
         }
 
-        // GET : Assignment/Details/{school}
-        [Route("school")]
-        public ActionResult Details(string schoolName)
-        {
-            var svc = CreateAssignmentService();
-            var model = svc.GetAssignmentBySchool(schoolName);
+        //// GET : Assignment/Details/{school}
+        //[Route("school")]
+        //public ActionResult Details(string schoolName)
+        //{
+        //    var svc = CreateAssignmentService();
+        //    var model = svc.GetAssignmentBySchool(schoolName);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        // GET : Assignment/Details/{scout}
-        [Route("scout")]
-        public ActionResult DetailsByScout(string scoutLastName)
-        {
-            var svc = CreateAssignmentService();
-            var model = svc.GetAssignmentByScout(scoutLastName);
+        //// GET : Assignment/Details/{scout}
+        //[Route("scout")]
+        //public ActionResult DetailsByScout(string scoutLastName)
+        //{
+        //    var svc = CreateAssignmentService();
+        //    var model = svc.GetAssignmentByScout(scoutLastName);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         // GET : Assignment/Details/{active}
         [Route("active")]

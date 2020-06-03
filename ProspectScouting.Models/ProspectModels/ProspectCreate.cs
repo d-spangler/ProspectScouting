@@ -28,12 +28,9 @@ namespace ProspectScouting.Models.ProspectModels
         [Display(Name = "Position:")]
         public Position Position { get; set; }
 
-        [Required]
         [Display(Name = "School:")]
         public int SchoolID { get; set; }
 
-        [Display(Name = "School Name:")]
-        [ForeignKey(nameof(SchoolID))]
         public virtual School School { get; set; }
 
         [Required]

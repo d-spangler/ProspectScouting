@@ -64,15 +64,15 @@ namespace ProspectScouting.WebMVC.Controllers
             return View(model);
         }
 
-        // GET : Scout/Details/{lastname}
-        [Route("lastname")]
-        public ActionResult Details(string lastName)
-        {
-            var svc = CreateScoutService();
-            var model = svc.GetScoutByName(lastName);
+        //// GET : Scout/Details/{lastname}
+        //[Route("lastname")]
+        //public ActionResult Details(string lastName)
+        //{
+        //    var svc = CreateScoutService();
+        //    var model = svc.GetScoutByName(lastName);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         // UPDATE
 
@@ -94,7 +94,6 @@ namespace ProspectScouting.WebMVC.Controllers
 
         // POST : Scout/Edit/{id}
         [HttpPost]
-        [ActionName("Update")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ScoutEdit model)
         {

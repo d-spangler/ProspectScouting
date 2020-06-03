@@ -26,7 +26,9 @@ namespace ProspectScouting.Services
                 {
                     AssignmentRequest = model.AssignmentRequest,
                     School = model.School,
-                    Scout = model.Scout
+                    SchoolID = model.SchoolID,
+                    Scout = model.Scout,
+                    ScoutID = model.ScoutID
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -82,47 +84,47 @@ namespace ProspectScouting.Services
             }
         }
 
-        // GET BY SCHOOL
-        public AssignmentDetail GetAssignmentBySchool(string schoolName)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Assignments
-                        .Single(e => e.School.SchoolName == schoolName);
-                return
-                        new AssignmentDetail
-                        {
-                            AssignmentID = entity.AssignmentID,
-                            AssignmentRequest = entity.AssignmentRequest,
-                            School = entity.School,
-                            Scout = entity.Scout,
-                            Completed = entity.Completed
-                        };
-            }
-        }
+        //// GET BY SCHOOL
+        //public AssignmentDetail GetAssignmentBySchool(string schoolName)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Assignments
+        //                .Single(e => e.School.SchoolName == schoolName);
+        //        return
+        //                new AssignmentDetail
+        //                {
+        //                    AssignmentID = entity.AssignmentID,
+        //                    AssignmentRequest = entity.AssignmentRequest,
+        //                    School = entity.School,
+        //                    Scout = entity.Scout,
+        //                    Completed = entity.Completed
+        //                };
+        //    }
+        //}
 
-        // GET BY SCOUT
-        public AssignmentDetail GetAssignmentByScout(string scoutLastName)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Assignments
-                        .Single(e => e.Scout.LastName == scoutLastName);
-                return
-                        new AssignmentDetail
-                        {
-                            AssignmentID = entity.AssignmentID,
-                            AssignmentRequest = entity.AssignmentRequest,
-                            School = entity.School,
-                            Scout = entity.Scout,
-                            Completed = entity.Completed
-                        };
-            }
-        }
+        //// GET BY SCOUT
+        //public AssignmentDetail GetAssignmentByScout(string scoutLastName)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Assignments
+        //                .Single(e => e.Scout.LastName == scoutLastName);
+        //        return
+        //                new AssignmentDetail
+        //                {
+        //                    AssignmentID = entity.AssignmentID,
+        //                    AssignmentRequest = entity.AssignmentRequest,
+        //                    School = entity.School,
+        //                    Scout = entity.Scout,
+        //                    Completed = entity.Completed
+        //                };
+        //    }
+        //}
 
         // GET ASSIGNMENTS IN PROGRESS
         public AssignmentDetail GetActiveAssignments(bool completed)

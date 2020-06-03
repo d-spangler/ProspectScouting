@@ -35,6 +35,7 @@
             @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Position, EnumHelper.GetSelectList(typeof(ProspectScouting.Data.Position)), "Select Position")
+                @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -42,7 +43,7 @@
             @Html.LabelFor(model => model.School.SchoolName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("SchoolID", null, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SchoolID, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.School.SchoolID, "", new { @class = "text-danger" })
             </div>
             <div class=" col-md-offset-2">
                 <input type="button" value="Add New School" onclick="location.href='@Url.Action("Create", "School")'" class="btn btn-default" />

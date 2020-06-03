@@ -44,9 +44,6 @@ namespace ProspectScouting.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProspectCreate model)
         {
-            //var db = new SchoolService();
-            //ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
-
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateProspectService();
@@ -147,8 +144,8 @@ namespace ProspectScouting.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ProspectEdit model)
         {
-            var db = new SchoolService();
-            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+            //var db = new SchoolService();
+            //ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
 
             if (!ModelState.IsValid) return View(model);
 

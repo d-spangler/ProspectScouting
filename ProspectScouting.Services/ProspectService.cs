@@ -4,6 +4,8 @@ using ProspectScouting.Models.SchoolModels;
 using ProspectScouting.WebMVC.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +31,7 @@ namespace ProspectScouting.Services
                     LastName = model.LastName,
                     Position = model.Position,
                     School = model.School,
+                    SchoolID = model.SchoolID,
                     Report = model.Report,
                     Grade = model.Grade,
                     BigBoard = model.BigBoard
@@ -86,6 +89,7 @@ namespace ProspectScouting.Services
                             LastName = entity.LastName,
                             Position = entity.Position,
                             School = entity.School,
+                            SchoolID = entity.SchoolID,
                             Report = entity.Report,
                             Grade = entity.Grade,
                             BigBoard = entity.BigBoard
@@ -208,7 +212,8 @@ namespace ProspectScouting.Services
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
                 entity.Position = model.Position;
-                entity.School = model.School;
+                //entity.School = model.School;
+                entity.SchoolID = model.SchoolID;
                 entity.Report = model.Report;
                 entity.Grade = model.Grade;
                 entity.BigBoard = model.BigBoard;

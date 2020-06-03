@@ -17,16 +17,12 @@ namespace ProspectScouting.Models.AssignmentModels
         [Display(Name = "Request:")]
         public string AssignmentRequest { get; set; }
 
-        [Required]
         public int SchoolID { get; set; }
 
-        [ForeignKey(nameof(SchoolID))]
         public virtual School School { get; set; }
 
-        [Required]
         public int ScoutID { get; set; }
 
-        [ForeignKey(nameof(ScoutID))]
         public virtual Scout Scout { get; set; }
     }
 }

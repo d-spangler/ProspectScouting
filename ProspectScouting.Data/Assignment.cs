@@ -21,13 +21,11 @@ namespace ProspectScouting.Data
 
         public int SchoolID { get; set; }
 
-        [Required]
         [ForeignKey(nameof(SchoolID))]
         public virtual School School { get; set; }
 
         public int ScoutID { get; set; }
 
-        [Required]
         [ForeignKey(nameof(ScoutID))]
         public virtual Scout Scout { get; set; }
 
