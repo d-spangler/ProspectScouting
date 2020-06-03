@@ -17,13 +17,33 @@ namespace ProspectScouting.WebMVC.Controllers
     public class AssignmentController : Controller
     {
         // GET: Assignment
-        public ActionResult Index()
+        public ActionResult Index(string sortingOrder)
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new AssignmentService(userID);
-            var model = service.GetAllAssignments();
+            //var model = service.GetAllAssignments();
 
-            return View(model);
+            ViewBag.SortingSchoolName = string.IsNullOrEmpty(sortingOrder) ? "SchoolName" : "";
+            ViewBag.SortingScoutName = string.IsNullOrEmpty(sortingOrder) ? "ScoutName" : "";
+            ViewBag.SortingCompleted = string.IsNullOrEmpty(sortingOrder) ? "Completed" : "";
+
+            var assignments = from assignment in service.GetAllAssignments() select assignment;
+            switch (sortingOrder)
+            {
+                case "SchoolName":
+                    assignments = assignments.OrderBy(assignment => assignment.School.SchoolName);
+                    break;
+                case "ScoutName":
+                    assignments = assignments.OrderBy(assignment => assignment.Scout.LastName);
+                    break;
+                case "Completed":
+                    assignments = assignments.OrderBy(assignment => assignment.Completed);
+                    break;
+            }
+
+            return View(assignments.ToList());
+
+            //return View(model);
         }
 
         // CREATE

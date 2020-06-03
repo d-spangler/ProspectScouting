@@ -25,11 +25,18 @@
         @*<th>
             @Html.DisplayNameFor(model => model.ScoutID)
         </th>*@
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LastName)
+        </th>*@
+
+        <th>
+            @Html.ActionLink("First Name:", "Index", new { sortingOrder = ViewBag.SortingFirstName })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name:", "Index", new { sortingOrder = ViewBag.SortingLastName })
         </th>
         <th></th>
     </tr>

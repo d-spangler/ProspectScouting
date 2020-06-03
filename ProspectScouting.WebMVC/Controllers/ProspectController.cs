@@ -105,12 +105,41 @@ namespace ProspectScouting.WebMVC.Controllers
 
         // GET : BIG BOARD
         [Route("bigboard")]
-        public ActionResult BigBoard()
+        public ActionResult BigBoard(string sortingOrder)
         {
-            var svc = CreateProspectService();
-            var model = svc.GetProspectByBigBoard();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProspectService(userID);
+            var model = service.GetProspectByBigBoard();
+            
 
-            return View(model);
+            ViewBag.SortingFirstName = string.IsNullOrEmpty(sortingOrder) ? "FirstName" : "";
+            ViewBag.SortingLastName = string.IsNullOrEmpty(sortingOrder) ? "LastName" : "";
+            ViewBag.SortingPosition = string.IsNullOrEmpty(sortingOrder) ? "Position" : "";
+            ViewBag.SortingSchoolName = string.IsNullOrEmpty(sortingOrder) ? "SchoolName" : "";
+            ViewBag.SortingGrade = string.IsNullOrEmpty(sortingOrder) ? "Grade" : "";
+
+            var prospects = from prospect in service.GetAllProspects() select prospect;
+            switch (sortingOrder)
+            {
+                case "FirstName":
+                    prospects = prospects.OrderBy(prospect => prospect.FirstName);
+                    break;
+                case "LastName":
+                    prospects = prospects.OrderBy(prospect => prospect.LastName);
+                    break;
+                case "Position":
+                    prospects = prospects.OrderBy(prospect => prospect.Position);
+                    break;
+                case "SchoolName":
+                    prospects = prospects.OrderBy(prospect => prospect.School.SchoolName);
+                    break;
+                case "Grade":
+                    prospects = prospects.OrderBy(prospect => prospect.Grade);
+                    break;
+            }
+
+            return View(prospects.ToList());
+            //return View(model);
         }
 
         //// GET : Prospect/Details/{lastname}

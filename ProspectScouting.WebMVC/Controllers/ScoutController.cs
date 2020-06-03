@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using ProspectScouting.Data;
 using ProspectScouting.Models.ScoutModels;
 using ProspectScouting.Services;
 using System;
@@ -15,13 +16,30 @@ namespace ProspectScouting.WebMVC.Controllers
     public class ScoutController : Controller
     {
         // GET : Scout
-        public ActionResult Index()
+        public ActionResult Index(string sortingOrder)
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new ScoutService(userID);
-            var model = service.GetAllScouts();
+            //var model = service.GetAllScouts();
 
-            return View(model);
+            ViewBag.SortingFirstName = string.IsNullOrEmpty(sortingOrder) ? "FirstName" : "";
+            ViewBag.SortingLastName = string.IsNullOrEmpty(sortingOrder) ? "LastName" : "";
+            
+
+            var scouts = from scout in service.GetAllScouts() select scout;
+            switch (sortingOrder)
+            {
+                case "FirstName":
+                    scouts = scouts.OrderBy(scout => scout.FirstName);
+                    break;
+                case "LastName":
+                    scouts = scouts.OrderBy(scout => scout.LastName);
+                    break;
+            }
+
+            return View(scouts.ToList());
+
+            //return View(model);
         }
 
         // CREATE

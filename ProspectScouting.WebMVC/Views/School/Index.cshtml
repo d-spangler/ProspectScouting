@@ -25,7 +25,7 @@
         @*<th>
             @Html.DisplayNameFor(model => model.SchoolID)
         </th>*@
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.SchoolName)
         </th>
         <th>
@@ -33,6 +33,15 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.State)
+        </th>*@
+        <th>
+            @Html.ActionLink("School Name:", "Index", new { sortingOrder = ViewBag.SortingSchoolName })
+        </th>
+        <th>
+            @Html.ActionLink("City:", "Index", new { sortingOrder = ViewBag.SortingCity })
+        </th>
+        <th>
+            @Html.ActionLink("State:", "Index", new { sortingOrder = ViewBag.SortingState })
         </th>
         <th></th>
     </tr>

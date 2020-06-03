@@ -11,7 +11,7 @@
         @*<th>
             @Html.DisplayNameFor(model => model.ProspectID)
         </th>*@
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
@@ -22,7 +22,21 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.School.SchoolName)
+        </th>*@
+
+        <th>
+            @Html.ActionLink("First Name:", "BigBoard", new { sortingOrder = ViewBag.SortingFirstName })
         </th>
+        <th>
+            @Html.ActionLink("Last Name:", "BigBoard", new { sortingOrder = ViewBag.SortingLastName })
+        </th>
+        <th>
+            @Html.ActionLink("Position:", "BigBoard", new { sortingOrder = ViewBag.SortingPosition })
+        </th>
+        <th>
+            @Html.ActionLink("School Name:", "BigBoard", new { sortingOrder = ViewBag.SortingSchoolName })
+        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Report)
         </th>
@@ -32,6 +46,7 @@
         @*<th>
             @Html.DisplayNameFor(model => model.BigBoard)
         </th>*@
+
         <th></th>
     </tr>
 

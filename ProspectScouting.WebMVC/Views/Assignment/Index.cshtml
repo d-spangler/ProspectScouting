@@ -28,7 +28,7 @@
         <th>
             @Html.DisplayNameFor(model => model.AssignmentRequest)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.School.SchoolName)
         </th>
         <th>
@@ -36,7 +36,17 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Completed)
+        </th>*@
+        <th>
+            @Html.ActionLink("School Name:", "Index", new { sortingOrder = ViewBag.SortingSchoolName })
         </th>
+        <th>
+            @Html.ActionLink("Scout Name:", "Index", new { sortingOrder = ViewBag.SortingScoutName })
+        </th>
+        <th>
+            @Html.ActionLink("Completed?", "Index", new { sortingOrder = ViewBag.SortingCompleted })
+        </th>
+
         <th></th>
     </tr>
 
