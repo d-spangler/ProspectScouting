@@ -2,12 +2,14 @@
 using ProspectScouting.Data;
 using ProspectScouting.Models;
 using ProspectScouting.Models.ProspectModels;
+using ProspectScouting.Models.SchoolModels;
 using ProspectScouting.Services;
 using ProspectScouting.WebMVC.Data;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
@@ -19,13 +21,41 @@ namespace ProspectScouting.WebMVC.Controllers
     public class ProspectController : Controller
     {
         // GET : Prospect
-        public ActionResult Index()
+        public ActionResult Index(string sortingOrder)
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new ProspectService(userID);
-            var model = service.GetAllProspects();
+            //var model = service.GetAllProspects().OrderBy(m => m.LastName);
 
-            return View(model);
+            ViewBag.SortingFirstName = string.IsNullOrEmpty(sortingOrder) ? "FirstName" : "";
+            ViewBag.SortingLastName = string.IsNullOrEmpty(sortingOrder) ? "LastName" : "";
+            ViewBag.SortingPosition = string.IsNullOrEmpty(sortingOrder) ? "Position" : "";
+            ViewBag.SortingSchoolName = string.IsNullOrEmpty(sortingOrder) ? "SchoolName" : "";
+            ViewBag.SortingGrade = string.IsNullOrEmpty(sortingOrder) ? "Grade" : "";
+
+            var prospects = from prospect in service.GetAllProspects() select prospect;
+            switch (sortingOrder)
+            {
+                case "FirstName":
+                    prospects = prospects.OrderBy(prospect => prospect.FirstName);
+                    break;
+                case "LastName":
+                    prospects = prospects.OrderBy(prospect => prospect.LastName);
+                    break;
+                case "Position":
+                    prospects = prospects.OrderBy(prospect => prospect.Position);
+                    break;
+                case "SchoolName":
+                    prospects = prospects.OrderBy(prospect => prospect.School.SchoolName);
+                    break;
+                case "Grade":
+                    prospects = prospects.OrderBy(prospect => prospect.Grade);
+                    break;
+            }
+
+            return View(prospects.ToList());
+
+            //return View(model);
         }
 
         // CREATE
@@ -34,7 +64,9 @@ namespace ProspectScouting.WebMVC.Controllers
         public ActionResult Create()
         {
             var db = new SchoolService();
-            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+            //List<School> schoolList = schools
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().OrderBy(e=>e.SchoolName), "SchoolID", "SchoolName");
+            
             return View();
 
         }
@@ -119,7 +151,7 @@ namespace ProspectScouting.WebMVC.Controllers
         public ActionResult Edit(int id)
         {
             var db = new SchoolService();
-            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().OrderBy(e => e.SchoolName), "SchoolID", "SchoolName");
 
             var service = CreateProspectService();
             var detail = service.GetProspectByID(id);

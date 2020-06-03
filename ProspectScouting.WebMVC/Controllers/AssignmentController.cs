@@ -33,11 +33,11 @@ namespace ProspectScouting.WebMVC.Controllers
         {
             //Select School DDL
             var db = new SchoolService();
-            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().OrderBy(e => e.SchoolName), "SchoolID", "SchoolName");
 
             //Select Scout DDL
             var dbTwo = new ScoutService();
-            ViewBag.ScoutID = new SelectList(dbTwo.GetAllScouts().ToList(), "ScoutID", "FullName");
+            ViewBag.ScoutID = new SelectList(dbTwo.GetAllScouts().OrderBy(m => m.LastName), "ScoutID", "FullName");
 
             return View();
         }
@@ -121,11 +121,11 @@ namespace ProspectScouting.WebMVC.Controllers
         {
             //Select School DDL
             var db = new SchoolService();
-            ViewBag.SchoolID = new SelectList(db.GetAllSchools().ToList(), "SchoolID", "SchoolName");
+            ViewBag.SchoolID = new SelectList(db.GetAllSchools().OrderBy(e => e.SchoolName), "SchoolID", "SchoolName");
 
             //Select Scout DDL
             var dbTwo = new ScoutService();
-            ViewBag.ScoutID = new SelectList(dbTwo.GetAllScouts().ToList(), "ScoutID", "FullName");
+            ViewBag.ScoutID = new SelectList(dbTwo.GetAllScouts().OrderBy(e => e.LastName), "ScoutID", "FullName");
 
             var service = CreateAssignmentService();
             var detail = service.GetAssignmentByID(id);

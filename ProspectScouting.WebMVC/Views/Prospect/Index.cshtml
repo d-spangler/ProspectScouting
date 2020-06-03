@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<ProspectScouting.Models.ProspectModels.ProspectListItem>
-
+    
 @{
     ViewBag.Title = "Index";
 }
@@ -19,13 +19,31 @@
         @TempData["SaveResult"]
     </div>
 }
-
+@*@foreach (var item in (ViewBag.ProspectList as List<Prospect>)
+    .OrderBy(_ => _.FirstName).ThenBy(_.LastName))
+{
+    <option value=" @item.ProspectID"></option>
+}*@
 <table class="table">
     <tr>
         @*<th>
             @Html.DisplayNameFor(model => model.ProspectID)
         </th>*@
+
         <th>
+            @Html.ActionLink("First Name:", "Index", new { sortingOrder = ViewBag.SortingFirstName })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name:", "Index", new { sortingOrder = ViewBag.SortingLastName })
+        </th>
+        <th>
+            @Html.ActionLink("Position:", "Index", new { sortingOrder = ViewBag.SortingPosition })
+        </th>
+        <th>
+            @Html.ActionLink("School Name:", "Index", new { sortingOrder = ViewBag.SortingSchoolName })
+        </th>
+
+        @*<th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
@@ -34,15 +52,18 @@
         <th>
             @Html.DisplayNameFor(model => model.Position)
         </th>
-
         <th>
             @Html.DisplayNameFor(model => model.School.SchoolName)
-        </th>
+        </th>*@
+
         <th>
             @Html.DisplayNameFor(model => model.Report)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Grade)
+        </th>*@
+        <th>
+            @Html.ActionLink("Grade:", "Index", new { sortingOrder = ViewBag.SortingGrade })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BigBoard)

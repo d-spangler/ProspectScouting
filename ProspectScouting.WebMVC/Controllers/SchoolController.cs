@@ -15,13 +15,33 @@ namespace ProspectScouting.WebMVC.Controllers
     public class SchoolController : Controller
     {
         // GET : School
-        public ActionResult Index()
+        public ActionResult Index(string sortingOrder)
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new SchoolService(userID);
-            var model = service.GetAllSchools();
+            //var model = service.GetAllSchools();
 
-            return View(model);
+            ViewBag.SortingSchoolName = string.IsNullOrEmpty(sortingOrder) ? "SchoolName" : "";
+            ViewBag.SortingCity = string.IsNullOrEmpty(sortingOrder) ? "City" : "";
+            ViewBag.SortingState = string.IsNullOrEmpty(sortingOrder) ? "State" : "";
+
+            var schools = from school in service.GetAllSchools() select school;
+            switch (sortingOrder)
+            {
+                case "SchoolName":
+                    schools = schools.OrderBy(school => school.SchoolName);
+                    break;
+                case "City":
+                    schools = schools.OrderBy(school => school.City);
+                    break;
+                case "State":
+                    schools = schools.OrderBy(school => school.State);
+                    break;
+            }
+
+            return View(schools.ToList());
+
+            //return View(model);
         }
 
         // CREATE
