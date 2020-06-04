@@ -1,14 +1,48 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url(../Assets/footballfield.prospectscouting.png);
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #8C8C8C;
+    opacity: 0.85;
 }
 
+footer {
+    position: fixed;
+    height: 30px;
+    background-color: #8C8C8C;
+    color: black;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+footer nav {
+    text-align: center;
+    vertical-align: central;
+}
+
+footer nav ul{
+    vertical-align: central;
+}
+
+footer nav ul li{
+    display: inline-block;
+    list-style: none;
+}
+
+footer nav ul li a{
+    font-size: 14px;
+}
+
+
+
+footer nav 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

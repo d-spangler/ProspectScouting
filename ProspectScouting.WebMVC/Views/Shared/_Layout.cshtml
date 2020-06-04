@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css"/> 
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -36,13 +38,17 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer class="panel-footer navbar-fixed-bottom">
-            <div>
-                <p>&copy; @DateTime.Now.Year</p> |
-                <p>@Html.ActionLink("About", "About", "Home")</p> |
-                <p>@Html.ActionLink("Contact", "Contact", "Home")</p> |
-                <p><a href="https://d-spangler.github.io/portfolio_ds20/" target="_blank">DSS</a></p>
+        <br />
+        <footer>
+            <div class="wrapper">
+                <nav>
+                    <ul>
+                        <li><a>&copy; @DateTime.Now.Year</a> |</li>
+                        <li><a>@Html.ActionLink("About", "About", "Home")</a> |</li>
+                        <li><a>@Html.ActionLink("Contact", "Contact", "Home")</a> |</li>
+                        <li><a href="https://d-spangler.github.io/portfolio_ds20/" target="_blank">DSS</a></a></li>
+                    </ul>
+                </nav>
             </div>
         </footer>
     </div>

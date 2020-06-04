@@ -27,5 +27,15 @@ namespace ProspectScouting.WebMVC.Controllers
 
             return View();
         }
+
+        public ActionResult Directions()
+        {
+            return View();
+        }
+
+        public ActionResult Resources()
+        {
+            return View();
+        }
     }
 }
